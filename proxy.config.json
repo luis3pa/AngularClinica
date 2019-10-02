@@ -1,0 +1,7 @@
+{
+    "//*":{
+        "target":"http://localhost:8034",
+        "secure": false,
+        "changeOrigen":true
+    }
+}

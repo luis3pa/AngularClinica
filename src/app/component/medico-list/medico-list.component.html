@@ -1,0 +1,41 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Años Experiencia</th>
+          <th scope="col">Epecialidad</th>
+          <th scope="col">Consultorio</th>
+          <th scope="col">Eps</th>
+          <th scope="col">¿Atiende a domicilio?</th>
+          <th scope="col">Mas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medico of medicos, index as id"> 
+          <td>{{id+1}}</td>            
+          <td>{{ medico.codTarPro }}</td>
+          <td>{{ medico.aniosExperiencia }}</td>
+          <td>{{ buscarEspecialidad(medico.idEspecialidad) }}</td>
+          <td>{{ buscarConsultorio(medico.idConsultorio) }}</td>
+          <td>{{ medico.eps }}</td>
+          <td>{{ buscarAtiende(medico.idAtiende) }}</td>
+          <td><div class="float-right mx-2" (click)="delete(medico)">
+              <svg-icon src="../../../assets/delete.svg" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+          </div>
+          <div class="float-right mx-2" (click)="listacita(medico)" >
+              <svg-icon src="../../../assets/lista.svg" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+          </div>
+          <div class="float-right mx-2" (click)="edit(medico)" >
+              <svg-icon src="../../../assets/pen.svg" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+          </div></td>         
+           
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

@@ -1,0 +1,53 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #medicoForm="ngForm">
+
+      <div class="form-group">
+        <label for="codTarPro">Codigo</label>
+        <input type="text" [(ngModel)]="medico.codTarPro" class="form-control" id="codTarPro" name="codTarPro"
+          placeholder="Enter your codigo" required #codTarPro="ngModel">
+      </div>
+      <div [hidden]="!codTarPro.pristine" class="alert alert-danger">Codigo is required</div>
+      <div class="form-group">
+        <label for="aniosExperiencia">años de Experiencia</label>
+        <input type="text" [(ngModel)]="medico.aniosExperiencia" class="form-control" id="aniosExperiencia"
+          name="aniosExperiencia" placeholder="Enter your anios experiencia">
+      </div>
+    
+      <div class="form-group">
+        <label for="idEspecialidad">Especialidad</label>
+        <select class="custom-select" [(ngModel)]=" medico.idEspecialidad" id="idEspecialidad" name="idEspecialidad"
+          class="form-control">
+          <option *ngFor="let especialidad of especialidades" value=" {{ especialidad.idEspecialidad }}">
+            {{ especialidad.nombreEspecialidad }}</option>
+        </select>
+    
+      </div>
+      
+      <div class="form-group">
+        <label for="idConsultorio">Consultorio</label>
+        <select class="custom-select" [(ngModel)]=" medico.idConsultorio" id="idConsultorio" name="idConsultorio"
+          class="form-control">
+          <option *ngFor="let consultorio of consultorios" value=" {{ consultorio.idConsultorio}}">
+            {{ consultorio.nombreConsultorio }}</option>
+        </select>
+    
+      </div>
+      <div class="form-group">
+        <label for="eps">Eps</label>
+        <input type="text" [(ngModel)]="medico.eps" class="form-control" id="eps" name="eps"
+          placeholder="Enter your eps">
+    
+      </div>
+      <div class="form-group">
+        <label for="idAtiende">¿Atiende a Domicilio?</label>
+        <select class="custom-select" [(ngModel)]=" medico.idAtiende" id="idAtiende" name="idAtiende"
+          class="form-control">
+          <option value="1">Si</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="!medicoForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #citaForm="ngForm">
+            <div class="form-group">
+                <label for="idCita">Codigo</label>
+                <input type="text" [(ngModel)]="cita.idCita" class="form-control" id="idCita" name="idCita"
+                    placeholder="Enter your codigo" required #id_cita="ngModel">
+            </div>
+            <div [hidden]="!id_cita.pristine" class="alert alert-danger">Codigo is required</div>
+
+            <div class="form-group">
+                <label for="codTarPro">Codigo Medico</label>
+                <select class="custom-select" [(ngModel)]=" medicoString" id="codTarPro" name="codTarPro" class="form-control" >           
+                    <option  *ngFor="let medico of medicos"  
+                    value=" {{ medico.codTarPro }}" >{{medico.codTarPro}}</option>
+                </select>
+               
+              </div>  
+
+            <div class="form-group">
+                <label for="fechaHora">Fecha de la cita</label>
+                <input type="text" [(ngModel)]="cita.fechaHora" class="form-control" id="fechaHora" name="fechaHora"
+                    placeholder="aaaa-mm-dd">
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="text" [(ngModel)]="cita.valor" class="form-control" id="valor" name="valor"
+                    placeholder="Valor">
+            </div>
+
+            <div class="form-group">
+                <label for="idAsistir">¿Asistio a la Cita?</label>
+                <select class="custom-select" [(ngModel)]=" cita.idAsistir" id="idAsistir" name="idAsistir"
+                    class="form-control">
+                    <option value="1">Si</option>
+                    <option value="2">No</option>
+                </select>
+
+            </div>
+
+            <button type="submit" [disabled]="!citaForm.form.valid" class="btn btn-info">Submit</button>
+        </form>
+    </div>
+</div>

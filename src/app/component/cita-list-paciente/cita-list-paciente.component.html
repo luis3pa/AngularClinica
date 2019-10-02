@@ -1,0 +1,27 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+              <th scope="col">#</th>
+            <th scope="col">Codigo Cita</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Valor</th>
+            <th scope="col">¿Asistio?</th>
+            <th scope="col">Firma</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citasPaciente, index as id"> 
+            <td>{{id+1}}</td>            
+            <td>{{ cita.idCita }}</td>
+            <td>{{ cita.fechaHora }}</td>
+            <td>{{ cita.valor }}</td>
+            <td>{{ buscarAsistir(cita.idAsistir) }}</td>
+            <td>{{ cita.firma }}</td>
+       
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

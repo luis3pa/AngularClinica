@@ -1,0 +1,37 @@
+<div class="card my-5">
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">¿Tratamiento?</th>
+                <th scope="col">Mas</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let paciente of pacientes">  
+                 
+                <td>{{ paciente.idPaciente }}</td>
+                <td>{{ paciente.nombre }}</td>
+                <td>{{ paciente.apellido }}</td>
+                <td>{{ paciente.fecha }}</td>
+                <td>{{ buscarTratamiento(paciente.id_tratamiento) }}</td>
+                <td><div class="float-right mx-3" (click)="delete(paciente)">
+                  <svg-icon src="../../../assets/delete.svg" [svgStyle]="{ 'width.px':20 }"></svg-icon>               
+                </div>
+                <div class="float-right mx-3" (click)="listacita(paciente)" >
+                    <svg-icon src="../../../assets/lista.svg" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+                </div>
+                <div class="float-right mx-3" (click)="edit(paciente)" >
+                    <svg-icon src="../../../assets/pen.svg" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+                </div></td>             
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
